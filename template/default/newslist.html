@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{pboot:pagetitle}</title>
+<meta name="keywords" content="{pboot:pagekeywords}">
+<meta name="description" content="{pboot:pagedescription}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{pboot:sitedomain}/skin/css/bootstrap.min.css" rel="stylesheet">
+<link href="{pboot:sitedomain}/skin/css/swiper-3.3.1.min.css" rel="stylesheet" />
+<link href="{pboot:sitedomain}/skin/css/animate.css" rel="stylesheet">
+<link href="{pboot:sitedomain}/skin/css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="{pboot:sitedomain}/skin/js/html5shiv.min.js"></script>
+    <script src="{pboot:sitedomain}/skin/js/respond.min.js"></script>
+    <![endif]-->
+<script src="{pboot:sitedomain}/skin/js/jquery-1.11.3.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/touchslide.1.1.js"></script>
+<script src="{pboot:sitedomain}/skin/js/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/swiper-3.3.1.jquery.min.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/wow.min.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/funtion.js" type="text/javascript"></script>
+</head>
+<body data-spy="scroll">
+<div id="wrap_index"> <!-- 侧边导航 -->
+
+{include file=head.html}
+ 
+  <!-- pcbanner -->
+  <div id="myCarousel1" class="carousel slide visible-md visible-lg">
+    <div class="carousel-inner">
+      {pboot:sort scode={sort:tcode}}<div class="item active"> <a><img src="[sort:pic]" width="100%"><em></em></a> </div>{/pboot:sort}
+    </div>
+  </div>
+  <!-- 手机banner -->
+  <div id="molbanner" class="visible-xs visible-sm">
+    <div class="swiper-container swiper-banner">
+      <ul class="swiper-wrapper banner-img">
+        {pboot:sort scode={sort:tcode}}<li class="swiper-slide"><a class="pic"><img src="[sort:pic]"/></a></li>{/pboot:sort}
+      </ul>
+    </div>
+  </div>
+  <div class="inner_main">
+    <div class="ny_cont">
+      <div class="nyttweizhi">
+        <div class="nytitle agdollar wow fadeInLeft">
+          <h2>{sort:topname}</h2>
+        </div>
+        <div class="weizhi visible-md visible-lg">{pboot:position}  </div>
+        <a href="javascript:;" class="classfiy visible-sm visible-xs">分类 +</a> </div>
+      <div class="navs">
+        <ul class="mtree transit">
+      	  {pboot:nav parent={sort:tcode}}
+          <li><a href="[nav:link]" {pboot:if('[nav:scode]'=='{sort:scode}')}class="thisclass"{/pboot:if}>[nav:name]<em></em></a></li>
+          {/pboot:nav}
+        </ul>
+      </div>
+      <div class="wrap_page aboutbgpage">
+        <div class="page_content">
+          <div class="nynav visible-md visible-lg">
+            <ul class="clearfix">
+			  {pboot:nav parent={sort:tcode}}
+              <li {pboot:if('[nav:scode]'=='{sort:scode}')}class="current"{/pboot:if}><a href="[nav:link]">[nav:name]</a></li>
+              {/pboot:nav}
+            </ul>
+          </div>
+          <div class="ny_content">
+            <ul class="clearfix newspage">
+			  {pboot:list num=8 order=sorting}
+              <li class="col-md-6 col-sm-6 col-xs-12"> <a href="[list:link]">
+                <h2>[list:title]</h2>
+                <p>[list:description len=60]</p>
+                <span>[list:date style=Y-m-d]</span> </a> </li>
+			  {/pboot:list}
+            </ul>
+          </div>
+          <div class="pagebar">{page:bar}</div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+{include file=footer.html}
+ </div>
+</body>
+</html>

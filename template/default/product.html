@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{pboot:pagetitle}</title>
+<meta name="keywords" content="{content:keywords}">
+<meta name="description" content="{content:description}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{pboot:sitedomain}/skin/css/bootstrap.min.css" rel="stylesheet">
+<link href="{pboot:sitedomain}/skin/css/swiper-3.3.1.min.css" rel="stylesheet" />
+<link href="{pboot:sitedomain}/skin/css/animate.css" rel="stylesheet">
+<link href="{pboot:sitedomain}/skin/css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="{pboot:sitedomain}/skin/js/html5shiv.min.js"></script>
+    <script src="{pboot:sitedomain}/skin/js/respond.min.js"></script>
+    <![endif]-->
+<script src="{pboot:sitedomain}/skin/js/jquery-1.11.3.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/touchslide.1.1.js"></script>
+<script src="{pboot:sitedomain}/skin/js/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/swiper-3.3.1.jquery.min.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/wow.min.js" type="text/javascript"></script>
+<script src="{pboot:sitedomain}/skin/js/funtion.js" type="text/javascript"></script>
+</head>
+<body data-spy="scroll">
+<div id="wrap_index"> <!-- 侧边导航 -->
+
+{include file=head.html}
+ 
+  <!-- pcbanner -->
+  <div id="myCarousel1" class="carousel slide visible-md visible-lg">
+    <div class="carousel-inner">
+      {pboot:sort scode={sort:tcode}}<div class="item active"> <a><img src="[sort:pic]" width="100%"><em></em></a> </div>{/pboot:sort}
+    </div>
+  </div>
+  <!-- 手机banner -->
+  <div id="molbanner" class="visible-xs visible-sm">
+    <div class="swiper-container swiper-banner">
+      <ul class="swiper-wrapper banner-img">
+        {pboot:sort scode={sort:tcode}}<li class="swiper-slide"><a class="pic"><img src="[sort:pic]"/></a></li>{/pboot:sort}
+      </ul>
+    </div>
+  </div>
+  <div class="inner_main">
+    <div class="ny_cont">
+      <div class="nyttweizhi">
+        <div class="nytitle agdollar wow fadeInLeft">
+          <h2>{sort:topname}</h2>
+        </div>
+        <div class="weizhi visible-md visible-lg">{pboot:position} </div>
+        <a href="javascript:;" class="classfiy visible-sm visible-xs">分类 +</a> </div>
+      <div class="navs">
+        <ul class="mtree transit">
+          {pboot:nav parent={sort:tcode}}
+          <li><a href="[nav:link]" {pboot:if('[nav:scode]'=='{sort:scode}')}class="thisclass"{/pboot:if}>[nav:name]<em></em></a></li>
+          {/pboot:nav}
+        </ul>
+      </div>
+      <div class="wrap_page wrap_page1">
+        <div class="page_content page_content1">
+          <div class="newsdet1 prodetailwrap">
+            <div class="clearfix prodw">
+              <div class="prodetail_gd col-md-6 col-xs-12 col-sm-12">
+                <div class="swiper-container gallery-top">
+                  <div class="swiper-wrapper">
+				  {pboot:pics id={content:id}}
+				  <div class="swiper-slide proimg"><img src="[pics:src]"></div>
+				  {/pboot:pics}
+				  </div>
+                  <div class="swiper-button-next swiper-button-white"></div>
+                  <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                  <div class="swiper-wrapper">
+					{pboot:pics id={content:id}}
+					<div class="swiper-slide">
+                      <div class="pimg"><img src="[pics:src]"><em></em></div>
+                    </div>
+					{/pboot:pics}
+				  </div>
+                </div>
+                <!-- Add Arrows --> 
+                
+              </div>
+              <div class="prodetail_nr col-md-6 col-xs-12 col-sm-12">
+                <div class="scroll_dt">
+                  <h2 class="title">{content:title}</h2>
+                  <div class="info">
+                    <p>线路编号：{content:ext_xlbh}</p>
+                    <p class="p1">线路亮点：{content:ext_xlld}</p>
+                  </div>
+                  <div class="price"> <em>{content:ext_yj}</em><span>￥<i>{content:ext_xj}</i>起/人</span> </div>
+                  <div class="time"> <em>出发城市：{content:ext_cfcs}</em> </div>
+                  <div class="order"><a href="{content:ext_gmlj}" class="buy">天猫购买</a><em><i>在线电话:{pboot:companyphone}</i></em></div>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+                        var galleryTop = new Swiper('.gallery-top', {
+                          nextButton: '.gallery-top .swiper-button-next',
+                          prevButton: '.gallery-top .swiper-button-prev',
+                          spaceBetween: 10,
+                      });
+                      var galleryThumbs = new Swiper('.gallery-thumbs', {
+                          spaceBetween: 10,
+                          centeredSlides: true,
+                          // slidesPerView: 'auto',
+                          slidesPerView : 3,
+                          touchRatio: 0.1,
+                          slideTo:0,
+                          slideToClickedSlide: true
+                      });
+                      galleryThumbs.slideTo(1, 1000, false);
+                      galleryTop.params.control = galleryThumbs;
+                      galleryThumbs.params.control = galleryTop;
+                    </script> 
+          </div>
+          <div class="ny_content ny_content1">
+            <div id="tabBox1" class="tabBox">
+              <div class="hd">
+                <ul>
+                  <li><a href="javascript:void(0)">行程线路</a></li>
+                  <li><a href="javascript:void(0)">行程攻略</a></li>
+                  <li><a href="javascript:void(0)">预定须知</a></li>
+                  <li><a href="javascript:void(0)">费用说明 </a></li>
+                </ul>
+              </div>
+              <div class="bd" id="tabBox1-bd"><!-- 添加id，js用到 -->
+                <div class="con"><!-- 高度自适应需添加外层 -->
+                  <ul>
+                    {content:content}
+                  </ul>
+                </div>
+                <div class="con"><!-- 高度自适应需添加外层 -->
+                  <ul>
+                  {content:ext_xcgl}
+				  </ul>
+                </div>
+                <div class="con"><!-- 高度自适应需添加外层 -->
+                  <ul>
+                   {content:ext_ydxz}
+                  </ul>
+                </div>
+                <div class="con"><!-- 高度自适应需添加外层 -->
+                  <ul>
+                    {content:ext_fysm}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hotaren">
+            {pboot:sort scode=5}<div class="title">[sort:name]<a href="[sort:link]">查看更多</a></div>{/pboot:sort}
+            <ul class="clearfix">
+			  {pboot:list scode=5 num=4 order='date desc'}
+              <li class="col-md-3 col-sm-6 col-xs-12"> <a href="[list:link]"> <i><img src="[list:ico]"><span>[list:ext_xj]元</span></i>
+                <h2>[list:sortname]</h2>
+                <p>[list:title]</p>
+                </a> </li>
+			  {/pboot:list}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{include file=footer.html}
+ </div>
+</body>
+</html>

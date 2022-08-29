@@ -1,0 +1,53 @@
+<div class="class page-prev visible-xs visible-sm">
+  <div class="close"></div>
+  <div class="class-top">
+    <form  name="formsearch" action="{pboot:scaction}"  method="get">
+      <input type="text" class="txt1" name="keyword" value="请输入关键字">
+      <input type="submit" class="btn1" value="">
+    </form>
+  </div>
+  <div class="class-m">
+    <ul class="nnav">
+      <li><a href="{pboot:sitedomain}/" class="ce">网站首页</a></li>
+      {pboot:nav}
+      <li class="menu_head"> <a href="[nav:link]" class="ce">[nav:name]</a>
+        <ul class="menu_body">
+          {pboot:2nav parent=[nav:scode]}
+          <li><a href="[2nav:link]" class="er">[2nav:name]</a></li>
+          {/pboot:2nav}
+        </ul>
+      </li>
+      {/pboot:nav}
+    </ul>
+  </div>
+</div>
+<div class="opacity2"></div>
+<div id="header" class="head visible-lg visible-md">
+  <div class="container-fluid">
+    <div class="logo wow fadeInLeft col-md-3"><a href="{pboot:sitedomain}/"><img src="{pboot:sitelogo}"></a></div>
+    <div class="col-md-9" style="height: 56px;">
+      <div class="search col-md-3 wow fadeInRight" style="float: right;">
+        <form  name="formsearch" action="{pboot:scaction}"  method="get">
+          <input class="txt1" type="text" name="keyword" placeholder="请输入关键字">
+          <input class="btn1" type="submit" value="" />
+        </form>
+      </div>
+      <div class="col-md-9 nav wow fadeInDown navbar-nav nav_box" style="float: right; text-align: right;">
+        <div class="yiji {pboot:if(0=='{sort:scode}')}current{/pboot:if}"><a href="{pboot:sitedomain}/">首页</a></div>
+        {pboot:nav}
+        <div class="yiji {pboot:if('[nav:scode]'=='{sort:tcode}')}current{/pboot:if}"><a href="[nav:link]"><em>[nav:name]</em></a>
+         {pboot:if([nav:soncount]>0)}<div class="libox" style="display: none;">
+          {pboot:2nav parent=[nav:scode]}
+          <a href="[2nav:link]"><em>[2nav:name]</em></a> 
+          {/pboot:2nav}
+         </div>{/pboot:if}
+        </div>
+        {/pboot:nav}
+        </div>
+    </div>
+  </div>
+</div>
+<div id="molheader" class="visible-sm visible-xs">
+  <div class="logomol"><a href="{pboot:sitedomain}/"><img src="{pboot:sitelogo}"></a></div>
+  <div class="mol_navbutton"><img src="{pboot:sitedomain}/skin/picture/menu.png"></div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "vendor_name/hz",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "lyy",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  },
+  "repositories": {
+
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+
+  }
+}
